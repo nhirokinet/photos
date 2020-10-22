@@ -25,6 +25,7 @@ import Router from 'vue-router'
 import Vue from 'vue'
 
 import isMapsInstalled from '../services/IsMapsInstalled'
+import areTagsInstalled from '../services/AreTagsInstalled'
 import { videoMimes } from '../services/AllowedMimes'
 
 const Albums = () => import('../views/Albums')
@@ -36,6 +37,11 @@ Vue.use(Router)
 let mapsPath = generateUrl('/apps/maps')
 if (!isMapsInstalled) {
 	mapsPath = generateUrl('/settings/apps/integration/maps')
+}
+
+let tagsRedirect = "redirect: '/'"
+if (areTagsInstalled) {
+	tagsRedirect = ''
 }
 
 export default new Router({
@@ -98,6 +104,7 @@ export default new Router({
 		},
 		{
 			path: '/tags/:path*',
+			tagsRedirect,
 			component: Tags,
 			name: 'tags',
 			props: route => ({
