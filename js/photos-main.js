@@ -40828,10 +40828,10 @@ if (!_services_IsMapsInstalled__WEBPACK_IMPORTED_MODULE_3__["default"]) {
   mapsPath = Object(_nextcloud_router__WEBPACK_IMPORTED_MODULE_0__["generateUrl"])('/settings/apps/integration/maps');
 }
 
-var tagsRedirect = "redirect: '/'";
+var tagsPath = "/tags/:path*";
 
-if (_services_AreTagsInstalled__WEBPACK_IMPORTED_MODULE_4__["default"]) {
-  tagsRedirect = '';
+if (!_services_AreTagsInstalled__WEBPACK_IMPORTED_MODULE_4__["default"]) {
+  tagsPath = '/';
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
@@ -40897,8 +40897,8 @@ if (_services_AreTagsInstalled__WEBPACK_IMPORTED_MODULE_4__["default"]) {
       };
     }
   }, {
-    path: '/tags/:path*',
-    tagsRedirect: tagsRedirect,
+    // path: '/tags/:path*',
+    path: tagsPath,
     component: Tags,
     name: 'tags',
     props: function props(route) {
@@ -41817,4 +41817,4 @@ var isNumber = function isNumber(num) {
 /***/ })
 
 /******/ });
-//# sourceMappingURL=photos-main.js.map?v=103e29b7506394ed004a
+//# sourceMappingURL=photos-main.js.map?v=b1ad7fd841dcbe69b28d

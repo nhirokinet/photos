@@ -39,9 +39,9 @@ if (!isMapsInstalled) {
 	mapsPath = generateUrl('/settings/apps/integration/maps')
 }
 
-let tagsRedirect = "redirect: '/'"
-if (areTagsInstalled) {
-	tagsRedirect = ''
+let tagsPath = '/tags/:path*'
+if (!areTagsInstalled) {
+	tagsPath = '/'
 }
 
 export default new Router({
@@ -103,8 +103,8 @@ export default new Router({
 			}),
 		},
 		{
-			path: '/tags/:path*',
-			tagsRedirect,
+			// path: '/tags/:path*',
+			path: tagsPath,
 			component: Tags,
 			name: 'tags',
 			props: route => ({
